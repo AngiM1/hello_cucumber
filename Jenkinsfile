@@ -11,6 +11,7 @@ pipeline {
         stage('Test') { 
             steps {
                 nodejs(nodeJSInstallationName: 'NodeJS 21.7.3') {
+                    sh 'cd /Users/eanglean/Desktop/demo cucumber/hellocucumber-test'
                     sh 'npm run test'
                 }
             }

@@ -11,20 +11,11 @@ pipeline {
         stage('Test') { 
             steps {
                 nodejs(nodeJSInstallationName: 'NodeJS 21.7.3') {
-                    // Combine commands using && to ensure they run sequentially
-                    sh '''
-                        cd /Users/eanglean/Desktop/demo-cucumber/hellocucumber &&
-                        npm run test
-                    '''
+                    sh 'set +e'
+                    sh 'cd /Users/eanglean/Desktop/demo-cucumber/hellocucumber'
+                    sh 'npm run test'
                 }
             }
-        }
-    }
-    // Post-build actions to handle failures gracefully
-    post {
-        always {
-            // Mark the build as unstable if it fails but allow it to continue
-            unstable('Build marked as unstable due to test failure.')
         }
     }
 }

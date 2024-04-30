@@ -24,7 +24,7 @@ pipeline {
     post {
         always {
             // Mark the build as unstable if it fails but allow it to continue
-            unstable()
+            unstable('Build marked as unstable due to test failure.')
         }
     }
 }

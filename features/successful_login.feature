@@ -1,4 +1,3 @@
-@login
 Feature: Successful login to FE
 
 Scenario: User Login Functionality
